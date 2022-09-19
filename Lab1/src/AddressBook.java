@@ -23,9 +23,11 @@ public class AddressBook {
     public static void main(String[] args)
     {
         BuddyInfo buddy = new BuddyInfo("Mengyao", "Carleton", "613");
+        BuddyInfo buddy2 = new BuddyInfo("Yaomeng", "Tonleca", "613");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy.getName(), buddy);
         addressBook.remove(buddy.getName());
+        addressBook.addBuddy(buddy2.getName(), buddy);
 
     }
 
