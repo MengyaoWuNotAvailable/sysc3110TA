@@ -1,35 +1,35 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class AddressBook {
 
-    private HashMap<String, BuddyInfo> addressBook;
+    private ArrayList<BuddyInfo> myBuddies;
 
     public AddressBook()
     {
-        addressBook = new HashMap<>();
+        myBuddies = new ArrayList<>();
     }
 
-    public void addBuddy(String name, BuddyInfo buddy_info)
+    public void addBuddy(BuddyInfo aBuddy)
     {
-        this.addressBook.put(name, buddy_info);
+        if(aBuddy !=null ){
+            myBuddies.add(aBuddy);
+        }
     }
 
-    public void remove(String name)
+    public BuddyInfo removeBuddy(int index)
     {
-        this.addressBook.remove(name);
+        if(index>=0 && index < myBuddies.size()){
+            return myBuddies.remove(index);
+        }
+        return null;
     }
 
 
     public static void main(String[] args)
     {
-        BuddyInfo buddy = new BuddyInfo("Mengyao", "Carleton", "613");
-        BuddyInfo buddy2 = new BuddyInfo("Yaomeng", "Tonleca", "613");
+        BuddyInfo buddy = new BuddyInfo("Tom", "Carleton", "613");
         AddressBook addressBook = new AddressBook();
-        addressBook.addBuddy(buddy.getName(), buddy);
-        addressBook.remove(buddy.getName());
-        addressBook.addBuddy(buddy2.getName(), buddy);
-
+        addressBook.addBuddy(buddy);
+        addressBook.removeBuddy(0);
     }
-
-
 }
